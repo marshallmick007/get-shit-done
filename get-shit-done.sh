@@ -42,15 +42,9 @@ work()
 
     ini_file="$HOME/.config/get-shit-done.ini"
 
-    site_list=( 'reddit.com' 'forums.somethingawful.com' 'somethingawful.com'
-		'digg.com' 'break.com' 'news.ycombinator.com'
-		'infoq.com' 'bebo.com' 'twitter.com'
-		'facebook.com' 'blip.com' 'youtube.com'
-		'vimeo.com' 'delicious.com' 'flickr.com'
-		'friendster.com' 'hi5.com' 'linkedin.com'
-		'livejournal.com' 'meetup.com' 'myspace.com'
-		'plurk.com' 'stickam.com' 'stumbleupon.com'
-		'yelp.com' 'slashdot.org' )
+    site_list=( 'facebook.com' 'facebook.net' 'static.ak.fbcdn.net'
+      'login.facebook.com' 'fbcdn.net' 'fbcdn.com' 'static.ak.connect.facebook.com'
+      'fbstatic-a.akamaihd.net')
 
     # add sites from ini file
     # to site_list array
@@ -109,7 +103,11 @@ d
 
     file=$1
 
-    sed --in-place -e "$sed_script" $file
+    # Linux impl
+    # sed --in-place -e "$sed_script" $file
+
+    # OSC Lion
+    sed -i -e "$sed_script" $file
 
     $restart_network
 }
